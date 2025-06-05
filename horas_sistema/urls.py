@@ -22,12 +22,12 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="API de Prueba",
+        title="API de Sistema de Turnos",
         default_version='v1',
-        description="API de prueba para el sistema de turnos",
+        description="API para el sistema de turnos",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@example.com"),
-        license=openapi.License(name="BSD License"),
+        contact=openapi.Contact(email="alexisguaza07@gmail.com"),
+        license=openapi.License(name="Regency S.A License"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -35,7 +35,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('prueba.urls')),
+    path('api/', include('usuarios.urls')),
+    path('api/', include('empresas.urls')), 
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
